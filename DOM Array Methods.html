@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Array Methods</title>
+    <style>
+        button {
+            border-style: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .menuboxes {
+            position: absolute;
+            left: 15%;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 5%;
+
+            .menubox {
+                border-radius: 7px;
+                border-bottom: 2.5px solid black;
+                padding: 5px;
+                width: 210px;
+                font-size: large;
+            }
+
+            .menubox:hover {
+                background-color: rgba(250, 235, 215, 0.856);
+                font-size: larger;
+            }
+        }
+
+        /* person */
+        h2 {
+            position: absolute;
+            left: 113%;
+        }
+
+        /* wealth */
+        h3 {
+            /* position: absolute; */
+            margin-left: 180%;
+            margin-top: 22px;
+            width: 50px;
+        }
+
+        h4 {
+            position: absolute;
+            margin-top: 100px;
+            margin-left: 33%;
+
+        }
+
+        h5 {
+            position: absolute;
+            margin-top: 100px;
+            margin-left: 53%;
+
+        }
+
+        hr.line {
+            /* position: absolute; */
+            margin: 4% 106%;
+            width: 450px;
+        }
+
+        hr.vertical {
+            border: 1px solid black;
+            z-index: 1;
+            width: 300px;
+            height: 1 px;
+            transform: rotate(90deg);
+            background-color: rgb(103, 12, 1);
+            position: absolute;
+            margin: 13% 20%;
+        }
+
+        .heading {
+            position: absolute;
+            margin-top: 25px;
+        }
+
+        .paise {
+            color: rgb(116, 2, 2);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        DOM Array Methods
+    </h1>
+    <!-- *****************************************************************main box**************************************************** -->
+    <div class="maindabba" id="maindabba">
+        <!-- *************************************************************menu boxes**************************************************** -->
+        <div class="menuboxes">
+            <button class="menubox" id="menubox1">Add User</button>
+            <button class="menubox" id="menubox2">Double Money</button>
+            <button class="menubox" id="menubox3">Show only Millionaires</button>
+            <button class="menubox" id="menubox4">Short by Richest</button>
+            <button class="menubox" id="menubox5">Calculate entire wealth</button>
+        </div>
+        <hr class="vertical">
+        <div id="heading" class="heading">
+            <h2 class="person">
+                Person
+            </h2>
+            <h3 class="wealth">
+                Wealth
+            </h3>
+            <hr class="line">
+        </div>
+
+    </div>
+</body>
+<script>
+    let maindabba = document.getElementById("maindabba")
+    // maindabba.style="display: flex; flex-direction: column;"
+    let names = ["John", "Satyam", "Vikas", "Ujjawal", "Shailendra", "Rahul", "Satyam Sharma", "Dheeraj SIngh"]
+    // let NumberOfNames=names.length
+    let menu = document.querySelectorAll(".menubox")
+    menu.forEach(segment => {
+        segment.addEventListener("click", () => {
+            let wealth = Math.floor(Math.random() * 900000)
+            let newPersonWealth = document.createElement("p")
+            let newPerson = document.createElement("p")
+            let NameShowed = Math.floor(Math.random() * names.length)
+            let name = names[NameShowed]
+            if (segment.textContent === "Add User") {
+
+                for (let i in names) {
+                    newPerson.innerHTML = `<h4>${name}</h4>`
+
+                    newPersonWealth.innerHTML = `<h5 class="paise" >${wealth}</h5><br>`
+                    maindabba.appendChild(newPerson)
+                    maindabba.appendChild(newPersonWealth)
+
+                    // for ensuring that no name should repeated
+                    names.splice(NameShowed, 1)
+                    if (names[i] in maindabba.children) {
+                        break
+                    }
+                    else {
+
+                        continue
+                    }
+                }
+            }
+            else if (segment.textContent === "Double Money") {
+                let selWealth = document.querySelectorAll("h5")
+                selWealth.forEach(function (setwealth, index) {
+                    let wealthValue = parseInt(setwealth.textContent)
+                    let Double = wealthValue * 2
+                    setwealth.textContent = Double
+                    setwealth.style.color = "green"
+                    // console.log(setwealth.textContent)
+                })
+
+            }
+            else if (segment.textContent === "Show only Millionaires") {
+                let selWealth = document.querySelectorAll('h5')
+                let selName = document.querySelectorAll('h4')
+                let millionaireList = []
+                for (let x = 0; x < selWealth.length; x++) {
+                    if (parseInt(selWealth[x].textContent) >= 1000000) {
+                        millionaireList.push({
+                            name: selName[x].textContent,
+                            wealth: selWealth[x].textContent
+                        })
+                    }
+                }
+                // clear the maindabba
+                maindabba.innerHTML = ''
+                // re-adding main dabba
+                maindabba.innerHTML = `
+                 <div class="maindabba" id="maindabba">
+                    <div class="menuboxes">
+            <button class="menubox" id="menubox1">Add User</button>
+            <button class="menubox" id="menubox2">Double Money</button>
+            <button class="menubox" id="menubox3">Show only Millionaires</button>
+            <button class="menubox" id="menubox4">Short by Richest</button>
+            <button class="menubox" id="menubox5">Calculate entire wealth</button>
+        </div>
+        <hr class="vertical">
+        <div id="heading" class="heading">
+            <h2 class="person">
+                Person
+            </h2>
+            <h3 class="wealth">
+                Wealth
+            </h3>
+            <hr class="line">
+        </div>
+        </div>`
+                // Now adding the millionaires
+                millionaireList.forEach(millionaire => {
+                    let newPersonWealth = document.createElement("p")
+                    let newPerson = document.createElement("p")
+                    newPerson.innerHTML = `<h4>${millionaire.name}</h4>`
+                    newPersonWealth.innerHTML = `<h5 class="paise" >${millionaire.wealth}</h5><br>`
+                    maindabba.appendChild(newPerson)
+                    maindabba.appendChild(newPersonWealth)
+                })
+            }
+            else if (segment.textContent === "Short by Richest") {
+                let selWealth = document.querySelectorAll('h5')
+                let selName = document.querySelectorAll('h4')
+                // let millionaireList = []
+                for (let x = 0; x < selWealth.length-1; x++) {
+                    for (let y = 0; y < selWealth.length-1-x; y++) {
+                        if (parseInt(selWealth[y].textContent)< parseInt(selWealth[y+1].textContent)) {
+                            let temp = selWealth[y].textContent
+                            selWealth[y].textContent = selWealth[y+1].textContent
+                            selWealth[y+1].textContent=temp
+                            
+                        }
+
+
+                    }
+
+                    
+                }
+                
+            }
+            else if(segment.textContent === "Calculate entire wealth"){
+                let selWealth = document.querySelectorAll('h5')
+                let sum=0
+                let millionaireList = []
+                for (let x = 0; x < selWealth.length-1; x++){
+                    sum=sum+parseInt(selWealth[x].textContent) 
+                }
+                // console.log(sum)
+                let total=document.createElement('p')
+                let naming=document.createElement('p')
+                naming.innerHTML=`<h4>Total</h4>`
+                total.innerHTML=`<h5 class="paise" >${sum}</h5><br>`
+                maindabba.appendChild(naming)
+                maindabba.append(total)
+            }
+            else {
+                console.log("next")
+            }
+        })
+    })
+</script>
+
+</html>
