@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8th one</title>
+    <style>
+        body {
+            background-color: rgb(3, 3, 97);
+        }
+
+        h2 {
+            color: antiquewhite;
+            position: absolute;
+            left: 30%;
+            top: 5%;
+        }
+        .dabba1,.dabba2{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+            left: 25%;
+            top: 20%;
+            #sel1,#sel2,button{
+                width:100px;
+            }
+        }
+        .dabba2{
+            left: 45%;
+            width:170px;
+            .b2,.b3{
+                background-color: azure;
+            }
+        }
+        
+        #change{
+            position: absolute;
+            top: 25%;
+            left: 35%;
+            border-style: none;
+            background-color: blanchedalmond;
+            color: darkblue;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        Exchange Rate calculator
+    </h2>
+    <div class="dabba1">
+        <select name="choose" id="sel1">
+            <option >----currency----</option>
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+            <option value="EUD">EUD</option>
+        </select>
+
+        <button onclick="swap()">Swap</button>
+
+        <select name="choose2" id="sel2">
+            <option >----currency----</option>
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+            <option value="EUD">EUD</option>
+        </select>
+    </div>
+
+    <!-- <button id="change">Change</button> -->
+     
+
+    <div class="dabba2">
+        <div id="b1" class="box b1"><input id="amount" type="number" placeholder="enter amount" required></div>
+        <div id="b2" class="box b2">rates</div>
+        <div id="b3" class="box b3">Currency Value</div>
+    </div>
+    <button id="change" type="submit" onclick="calculate()">Change</button>
+    <script>
+        const rates={
+            EUD:0.91,
+            USD:1,
+            INR:83.5
+            
+        }
+        
+            // amount.value=0
+            // if(amount==0){
+            //     alert("please input any amount")
+            //     return
+            // }
+        let output=document.getElementById('b3')
+        let temp
+        function swap(){
+            temp=document.getElementById('sel1').value
+            document.getElementById('sel1').value=document.getElementById('sel2').value
+            document.getElementById('sel2').value=temp
+        }
+        function calculate(){
+            const sel1=document.getElementById("sel1").value
+            const sel2=document.getElementById("sel2").value
+            const amount=document.getElementById("amount").value
+            let middle=document.getElementById('b2')
+            const usdVal=amount / rates[sel1]
+            const currentVal=usdVal * rates[sel2]
+            output.textContent=currentVal
+            middle.textContent=`1  ${sel1} = ${rates[sel2]} ${sel2}`
+
+            // else{
+            //     output.textContent=rates[sel1]
+                
+            // }
+            
+
+            
+        }
+       
+       
+        
+        
+        
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
