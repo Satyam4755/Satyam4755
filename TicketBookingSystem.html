@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7th one</title>
+    <style>
+        body{
+            background-image: url(download1.jpg);
+            background-repeat: no-repeat;
+            background-size: 1600px;
+            overflow: hidden;
+        }
+        h1 {
+            color: blue;
+            margin-left: 400px;
+            font-size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .options {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(128, 128, 128, 0.496);
+            display: flex;
+            padding-left: 400px;
+            gap: 20px;
+            position: absolute;
+            z-index: 1;
+            padding: 10px 400px ;
+            .movie{
+                height: 90%;
+                border-radius: 10px;
+                border-style: none;
+            }
+        }
+
+        #main {
+            width: 400px;
+            position: absolute;
+            margin: 70px 500px;
+            z-index: -2;
+            filter: opacity(0%);
+        }
+
+        img {
+            width: 30px;
+        }
+
+
+        .seat,.seat1 {
+            background-color: rgba(240, 248, 255, 0);
+            border-style: hidden;
+            filter: contrast(10%);
+        }
+
+        .seat:hover ,.seat1:hover{
+            filter: contrast(100%);
+        }
+        
+        /* **************************************************************************************************************************************dabba */
+        .dabba{
+            position: absolute;
+            z-index: -3;
+            filter: opacity(0%);
+        }
+        .rows1 {
+            
+
+            .seats {
+                display: flex;
+                position: absolute;
+                margin: 175px 550px;
+            }
+
+            .seats2 {
+                display: flex;
+                position: absolute;
+                margin: 208px 550px;
+            }
+
+            .seats3 {
+                display: flex;
+                position: absolute;
+                margin: 240px 550px;
+            }
+
+            .seats4 {
+                display: flex;
+                position: absolute;
+                margin: 270px 550px;
+            }
+        }
+
+        .rows2 {
+            
+
+            img {
+                width: 32px;
+            }
+
+            .Seat1 {
+                display: flex;
+                position: absolute;
+                margin: 325px 525px;
+            }
+
+            .Seat2 {
+                display: flex;
+                position: absolute;
+                margin: 355px 525px;
+            }
+
+            .Seat3 {
+                display: flex;
+                position: absolute;
+                margin: 385px 525px;
+            }
+        }
+        .price{
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: wheat;
+            text-shadow: 5px 2px 10px black;
+            
+        }
+        .submit{
+            
+            
+            position: absolute;
+            top: 85.7%;
+            left: 57%;
+            filter: opacity(0%);
+            /* button{
+                background-color: rgb(0, 251, 0);
+                border: none;
+                font-size: large;
+                box-shadow: 1px  1px 10px #37ff00;
+            border-radius: 15px;
+            }
+            button:hover{
+                font-size: larger;
+            } */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ticket Booking System</h1>
+<div id="mainbox">
+    <img id="main" src="7.jpg" alt="">
+    <div id="dabba" class="dabba">
+        <div class="rows1">
+            <div id="seats" class="seats">
+                <button  class="seat"><img src="download.png" alt=""></button>
+                <button  class="seat"><img src="download.png" alt=""></button>
+                <button  class="seat"><img src="download.png" alt=""></button>
+                <button  class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button  class="seat"><img src="download.png" alt=""></button>
+                <button  class="seat"><img src="download.png" alt=""></button>
+            </div>
+
+            <div id="seats2" class="seats2">
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+            </div>
+
+            <div id="seats3" class="seats3">
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+            </div>
+            <div id="seats4" class="seats4">
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+                <button class="seat"><img src="download.png" alt=""></button>
+            </div>
+        </div>
+
+        <!-- yaha se next rows -->
+
+        <div class="rows2">
+            <div id="seat1" class="Seat1">
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+
+            </div>
+
+            <div id="seat2" class="Seat2">
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+
+            </div>
+
+            <div id="seat3" class="Seat3">
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+                <button class="seat1"><img src="download.png" alt=""></button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div class="options">
+        <button class="movie">
+            <h3>Movie Name</h3>
+        </button>
+        
+
+    </div>
+    <div id="price" class="price">
+        <h4 >Total  Price: $ <h4 id="fees"></h4></h4>
+
+    </div>
+    <div class="submit" id="submit">
+        <button>
+            submit
+        </button>
+    </div>
+    <script>
+        // let button = document.getElementById("movie1")
+        // seat.className="Seats"
+        let dabba = document.getElementById("dabba")
+        let button=document.querySelectorAll(".movie")
+        let mainbox=document.getElementById("mainbox")
+        let price=document.getElementById("fees")
+        let submit=document.getElementById('submit')
+        
+        // let text=price.textContent
+        
+        // let select=seats.children=seats2.children=seats3.children=seats4.children=seat1.children=seat2.children=seat3.childrenb 
+
+        // ************************************jab bhi humko bohot sare elements pe same function perform krni ho to hum "querySelectorAll" ka use krte hai, querySelectorAll('element'). Iske baad hum for each ka use kr sakte hai jisme hum har ek element pe pohoch sakte hai
+        let seats=document.querySelectorAll('.seat')
+        let seats1=document.querySelectorAll('.seat1')
+        
+        
+        // button.addEventListener("click", screen)
+        let  count = 0
+        button.forEach(movie=>{
+            // let text=movie.textContent
+            movie.addEventListener("click",()=>{
+                   
+                submit.textContent="Submit"
+                submit.style="background-color: rgb(0, 251, 0);border: none;font-size: larger;box-shadow: 1px  1px 10px yellow;border-radius: 15px;filter: opacity(100%); padding:5px"
+                mainbox.style.filter="opacity(100%)"
+                    let image = document.getElementById("main")
+                image.style = "filter: opacity(100%); "
+                dabba.style=" position: absolute; z-index: -1; filter: opacity(100%);"
+
+            
+                seats.forEach(seat =>{
+                    seat.addEventListener('click',()=>{
+                
+                        if(seat.style.filter==="contrast(100%)"){
+                            seat.style.filter="contrast(10%)"
+                             count-=150
+                             
+                        }
+                        else{
+                             seat.style.filter="contrast(100%)"
+                            count+=150
+                            
+                        }
+                    })
+                })
+                
+        
+                    seats1.forEach(seat1 =>{
+                            
+                            seat1.addEventListener('click',()=>{
+                                if(seat1.style.filter==="contrast(100%)"){
+                                    seat1.style.filter="contrast(10%)"
+                                    count-=250
+                                    
+                                }
+                                else{
+                                    seat1.style.filter="contrast(100%)"
+                                    count+=250
+                                    
+                                }
+                
+                            })
+                    })
+                    
+                    
+                     
+
+                    
+            })
+            
+            submit.addEventListener("click",ok)
+                    function ok(){
+                        if(submit.textContent==="submit"){
+                        price.textContent=count
+                        mainbox.style.filter="opacity(0%)"
+                        submit.textContent="Thank You"
+                        submit.style="background-color: yellow;border: none;font-size: large;box-shadow: 1px  1px 10px yellow;border-radius: 15px;"
+                        seats.forEach(SEAT=>{
+                            SEAT.style.filter="contrast(10%)"
+                            SEAT.style.hover.filter="contrast(100%)"
+                        })
+                        seats1.forEach(SEAT1 =>{
+                            SEAT1.style.filter="contrast(10%)"
+                            SEAT1.style.hover.filter="contrast(100%)"
+                        })
+
+                    }
+                    else{
+                        submit.textContent="submit"
+                    }
+                    }
+        })
+
+    </script>
+</body>
+
+</html>
