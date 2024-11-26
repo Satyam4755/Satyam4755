@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Ticket Booking System</title>
     <style>
-        /* General Styling */
+        /* General body styles */
         body {
-            margin: 0;
-            padding: 0;
-            background-image: url('download1.jpg');
+            background-image: url("download1.jpg");
             background-size: cover;
-            background-repeat: no-repeat;
             background-position: center;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -21,199 +18,152 @@
             text-align: center;
             color: blue;
             margin-top: 20px;
-            font-size: 2rem;
+            font-size: 40px;
         }
 
-        .options {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
+        /* Scrollable container styles */
+        .scrollable-seat-container {
+            width: 90%;
+            max-width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            overflow-y: scroll;
+            padding: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .options button {
-            background-color: rgba(128, 128, 128, 0.7);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        .options button:hover {
-            background-color: rgba(128, 128, 128, 0.9);
-        }
-
-        #mainbox {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin: 20px 0;
-        }
-
-        .seats-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* Seat grid styles */
+        .seat-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
             gap: 10px;
+            justify-content: center;
         }
 
+        /* Seat styles */
         .seat {
-            background-color: rgba(240, 248, 255, 0);
+            width: 80px;
+            height: 80px;
+            background-image: url("download.png");
+            background-size: cover;
+            background-position: center;
             border: none;
-            filter: contrast(10%);
-            width: 50px;
-            height: 50px;
-        }
-
-        .seat img {
-            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
         }
 
         .seat:hover {
-            filter: contrast(100%);
-            cursor: pointer;
+            transform: scale(1.1);
         }
 
-        #price {
+        .seat.selected {
+            filter: brightness(1.5);
+        }
+
+        /* Price display */
+        .price-display {
             text-align: center;
+            font-size: 20px;
             color: wheat;
-            text-shadow: 5px 2px 10px black;
-            font-size: 1.5rem;
-        }
-
-        .submit {
-            display: flex;
-            justify-content: center;
             margin-top: 20px;
+            text-shadow: 2px 2px 5px black;
         }
 
-        .submit button {
-            background-color: green;
-            color: white;
+        /* Submit button */
+        .submit-btn {
+            display: block;
+            margin: 20px auto;
             padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: green;
             border: none;
             border-radius: 5px;
-            font-size: 1.2rem;
-            box-shadow: 1px 1px 10px #37ff00;
+            box-shadow: 2px 2px 10px rgba(0, 255, 0, 0.8);
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .submit button:hover {
+        .submit-btn:hover {
             background-color: darkgreen;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .seat {
-                width: 40px;
-                height: 40px;
-            }
+            transform: scale(1.05);
         }
 
         @media (max-width: 480px) {
             .seat {
-                width: 30px;
-                height: 30px;
-            }
-
-            .options button {
-                font-size: 1rem;
+                width: 70px;
+                height: 70px;
             }
 
             h1 {
-                font-size: 1.5rem;
+                font-size: 32px;
             }
 
-            #price {
-                font-size: 1.2rem;
+            .submit-btn {
+                font-size: 16px;
             }
         }
     </style>
 </head>
-
 <body>
-    <h1>Responsive Ticket Booking System</h1>
-
-    <div class="options">
-        <button id="start">Click To Start</button>
-    </div>
-
-    <div id="mainbox">
-        <div class="seats-container" id="seats-container">
-            <!-- Seats will be dynamically added here -->
+    <h1>Ticket Booking System</h1>
+    <!-- Scrollable Seat Container -->
+    <div class="scrollable-seat-container">
+        <div class="seat-container" id="seatContainer">
+            <!-- JavaScript will populate 42 seats here -->
         </div>
     </div>
-
-    <div id="price">Total Price: $<span id="fees">0</span></div>
-
-    <div class="submit">
-        <button id="submit">Submit</button>
+    <div class="price-display">
+        Total Price: $<span id="totalPrice">0</span>
     </div>
+    <button class="submit-btn" id="submitButton">Submit</button>
 
     <script>
-        const seatContainer = document.getElementById("seats-container");
-        const priceElement = document.getElementById("fees");
-        const submitButton = document.getElementById("submit");
-        const startButton = document.getElementById("start");
+        const seatContainer = document.getElementById("seatContainer");
+        const totalPriceDisplay = document.getElementById("totalPrice");
+        const submitButton = document.getElementById("submitButton");
 
         let totalPrice = 0;
+        const seatPrice = 150;
+        const totalSeats = 42;
 
-        // Generate seats dynamically based on screen size
-        function generateSeats() {
-            seatContainer.innerHTML = ""; // Clear existing seats
-            const screenWidth = window.innerWidth;
-            let seatsPerRow = 5;
+        // Generate seats
+        for (let i = 0; i < totalSeats; i++) {
+            const seat = document.createElement("button");
+            seat.classList.add("seat");
+            seatContainer.appendChild(seat);
 
-            if (screenWidth <= 768) {
-                seatsPerRow = 4; // Fewer seats for tablet
-            }
-            if (screenWidth <= 480) {
-                seatsPerRow = 2; // Fewer seats for mobile
-            }
-
-            const totalRows = 3; // Total number of rows
-            const totalSeats = totalRows * seatsPerRow;
-
-            for (let i = 0; i < totalSeats; i++) {
-                const seat = document.createElement("button");
-                seat.classList.add("seat");
-                seat.innerHTML = `<img src="download.png" alt="seat">`;
-                seat.addEventListener("click", () => toggleSeat(seat, i));
-                seatContainer.appendChild(seat);
-            }
+            // Seat click event
+            seat.addEventListener("click", () => {
+                if (seat.classList.contains("selected")) {
+                    seat.classList.remove("selected");
+                    totalPrice -= seatPrice;
+                } else {
+                    seat.classList.add("selected");
+                    totalPrice += seatPrice;
+                }
+                totalPriceDisplay.textContent = totalPrice;
+            });
         }
 
-        function toggleSeat(seat) {
-            if (seat.style.filter === "contrast(100%)") {
-                seat.style.filter = "contrast(10%)";
-                totalPrice -= seat.getAttribute("data-price") || 150; // Default price $150
-            } else {
-                seat.style.filter = "contrast(100%)";
-                totalPrice += parseInt(seat.getAttribute("data-price") || 150);
-            }
-            updatePrice();
-        }
-
-        function updatePrice() {
-            priceElement.textContent = totalPrice;
-        }
-
-        startButton.addEventListener("click", () => {
-            generateSeats();
-        });
-
+        // Submit button click event
         submitButton.addEventListener("click", () => {
-            alert("Total Price: $" + totalPrice);
+            if (totalPrice > 0) {
+                alert(`Thank you for booking! Total Price: $${totalPrice}`);
+                totalPrice = 0;
+                totalPriceDisplay.textContent = totalPrice;
+
+                // Reset seats
+                document.querySelectorAll(".seat").forEach(seat => {
+                    seat.classList.remove("selected");
+                });
+            } else {
+                alert("Please select at least one seat.");
+            }
         });
-
-        // Initial generation of seats
-        generateSeats();
-
-        // Regenerate seats on window resize
-        window.addEventListener("resize", generateSeats);
     </script>
 </body>
-
 </html>
