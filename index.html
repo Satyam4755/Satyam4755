@@ -137,7 +137,7 @@
     <h1>Responsive Ticket Booking System</h1>
 
     <div class="options">
-        <button id="start">Click To Start</button>
+        <!--<button id="start">Click To Start</button>-->
     </div>
 
     <div id="mainbox">
@@ -164,16 +164,16 @@
         function generateSeats() {
             seatContainer.innerHTML = ""; // Clear existing seats
             const screenWidth = window.innerWidth;
-            let seatsPerRow = 7;
+            let seatsPerRow = 5;
 
             if (screenWidth <= 768) {
-                seatsPerRow = 5; // Fewer seats for tablet
+                seatsPerRow = 4; // Fewer seats for tablet
             }
             if (screenWidth <= 480) {
-                seatsPerRow = 4; // Fewer seats for mobile
+                seatsPerRow = 2; // Fewer seats for mobile
             }
 
-            const totalRows = 6; // Total number of rows
+            const totalRows = 3; // Total number of rows
             const totalSeats = totalRows * seatsPerRow;
 
             for (let i = 0; i < totalSeats; i++) {
