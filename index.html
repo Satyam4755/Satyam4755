@@ -4,202 +4,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Ticket Booking</title>
+    <title>Responsive Ticket Booking System</title>
     <style>
+        /* General Styling */
         body {
-            background-image: url(download1.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
             margin: 0;
+            padding: 0;
+            background-image: url('download1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         h1 {
-            color: blue;
-            font-size: 3vw;
             text-align: center;
-            margin: 20px 0;
+            color: blue;
+            margin-top: 20px;
+            font-size: 2rem;
         }
 
         .options {
             display: flex;
             justify-content: center;
-            width: 100%;
-            padding: 10px 0;
-            background-color: rgba(128, 128, 128, 0.5);
+            margin: 20px 0;
         }
 
-        .options .movie {
-            padding: 10px 20px;
-            font-size: 1.5vw;
-            border: none;
-            border-radius: 10px;
-            background-color: rgb(0, 123, 255);
+        .options button {
+            background-color: rgba(128, 128, 128, 0.7);
             color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
         }
 
-        .options .movie:hover {
-            background-color: rgb(0, 100, 200);
-            transform: scale(1.1);
+        .options button:hover {
+            background-color: rgba(128, 128, 128, 0.9);
         }
 
-        #main {
-            width: 60%;
-            max-width: 600px;
-            margin: 20px 0;
-        }
-
-        .dabba {
+        #mainbox {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
+            flex-direction: column;
             margin: 20px 0;
         }
 
-        .seats,
-        .Seat1 {
+        .seats-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
         }
 
-        .seat img,
-        .seat1 img {
-            width: 5vw;
-            max-width: 50px;
-            object-fit: contain;
+        .seat {
+            background-color: rgba(240, 248, 255, 0);
+            border: none;
             filter: contrast(10%);
-            cursor: pointer;
-            transition: filter 0.3s;
+            width: 50px;
+            height: 50px;
         }
 
-        .seat img:hover,
-        .seat1 img:hover {
+        .seat img {
+            width: 100%;
+        }
+
+        .seat:hover {
             filter: contrast(100%);
+            cursor: pointer;
         }
 
-        .price {
-            font-size: 2vw;
+        #price {
+            text-align: center;
             color: wheat;
             text-shadow: 5px 2px 10px black;
-            margin: 20px;
+            font-size: 1.5rem;
+        }
+
+        .submit {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .submit button {
-            padding: 10px 20px;
-            font-size: 1.5vw;
-            border: none;
-            border-radius: 15px;
             background-color: green;
             color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            box-shadow: 1px 1px 10px #37ff00;
             cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
         }
 
         .submit button:hover {
-            background-color: yellow;
-            color: black;
-            transform: scale(1.1);
+            background-color: darkgreen;
         }
 
-        @media screen and (max-width: 768px) {
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .seat {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .seat {
+                width: 30px;
+                height: 30px;
+            }
+
+            .options button {
+                font-size: 1rem;
+            }
+
             h1 {
-                font-size: 5vw;
+                font-size: 1.5rem;
             }
 
-            .options .movie {
-                font-size: 3vw;
-                padding: 8px 15px;
-            }
-
-            #main {
-                width: 80%;
-            }
-
-            .seat img,
-            .seat1 img {
-                width: 8vw;
-            }
-
-            .price {
-                font-size: 4vw;
-            }
-
-            .submit button {
-                font-size: 3vw;
-                padding: 8px 15px;
+            #price {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <h1>Ticket Booking System</h1>
+    <h1>Responsive Ticket Booking System</h1>
+
+    <div class="options">
+        <button id="start">Click To Start</button>
+    </div>
+
     <div id="mainbox">
-        <img id="main" src="7.jpg" alt="">
-        <div class="dabba">
-            <div class="rows1">
-                <div class="seats">
-                    <button class="seat"><img src="download.png" alt="Seat"></button>
-                    <button class="seat"><img src="download.png" alt="Seat"></button>
-                    <button class="seat"><img src="download.png" alt="Seat"></button>
-                    <button class="seat"><img src="download.png" alt="Seat"></button>
-                </div>
-            </div>
-            <div class="rows2">
-                <div class="Seat1">
-                    <button class="seat1"><img src="download.png" alt="Premium Seat"></button>
-                    <button class="seat1"><img src="download.png" alt="Premium Seat"></button>
-                </div>
-            </div>
+        <div class="seats-container" id="seats-container">
+            <!-- Seats will be dynamically added here -->
         </div>
     </div>
-    <div class="options">
-        <button class="movie">Click To Start</button>
-    </div>
-    <div class="price">
-        Total Price: $<span id="fees">0</span>
-    </div>
+
+    <div id="price">Total Price: $<span id="fees">0</span></div>
+
     <div class="submit">
         <button id="submit">Submit</button>
     </div>
+
     <script>
-        let seats = document.querySelectorAll(".seat img");
-        let seats1 = document.querySelectorAll(".seat1 img");
-        let submitButton = document.getElementById("submit");
-        let priceDisplay = document.getElementById("fees");
+        const seatContainer = document.getElementById("seats-container");
+        const priceElement = document.getElementById("fees");
+        const submitButton = document.getElementById("submit");
+        const startButton = document.getElementById("start");
 
         let totalPrice = 0;
 
-        function toggleSeat(seat, price) {
-            if (seat.style.filter === "contrast(100%)") {
-                seat.style.filter = "contrast(10%)";
-                totalPrice -= price;
-            } else {
-                seat.style.filter = "contrast(100%)";
-                totalPrice += price;
+        // Generate seats dynamically based on screen size
+        function generateSeats() {
+            seatContainer.innerHTML = ""; // Clear existing seats
+            const screenWidth = window.innerWidth;
+            let seatsPerRow = 7;
+
+            if (screenWidth <= 768) {
+                seatsPerRow = 5; // Fewer seats for tablet
             }
-            priceDisplay.textContent = totalPrice;
+            if (screenWidth <= 480) {
+                seatsPerRow = 4; // Fewer seats for mobile
+            }
+
+            const totalRows = 6; // Total number of rows
+            const totalSeats = totalRows * seatsPerRow;
+
+            for (let i = 0; i < totalSeats; i++) {
+                const seat = document.createElement("button");
+                seat.classList.add("seat");
+                seat.innerHTML = `<img src="download.png" alt="seat">`;
+                seat.addEventListener("click", () => toggleSeat(seat, i));
+                seatContainer.appendChild(seat);
+            }
         }
 
-        seats.forEach((seat) => {
-            seat.addEventListener("click", () => toggleSeat(seat, 150));
-        });
+        function toggleSeat(seat) {
+            if (seat.style.filter === "contrast(100%)") {
+                seat.style.filter = "contrast(10%)";
+                totalPrice -= seat.getAttribute("data-price") || 150; // Default price $150
+            } else {
+                seat.style.filter = "contrast(100%)";
+                totalPrice += parseInt(seat.getAttribute("data-price") || 150);
+            }
+            updatePrice();
+        }
 
-        seats1.forEach((seat1) => {
-            seat1.addEventListener("click", () => toggleSeat(seat1, 250));
+        function updatePrice() {
+            priceElement.textContent = totalPrice;
+        }
+
+        startButton.addEventListener("click", () => {
+            generateSeats();
         });
 
         submitButton.addEventListener("click", () => {
-            alert("Thank you for booking! Total Price: $" + totalPrice);
+            alert("Total Price: $" + totalPrice);
         });
+
+        // Initial generation of seats
+        generateSeats();
+
+        // Regenerate seats on window resize
+        window.addEventListener("resize", generateSeats);
     </script>
 </body>
 
