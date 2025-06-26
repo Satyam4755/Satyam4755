@@ -53,18 +53,10 @@
 
 ---
 
-### ⚡ GitHub Streak
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=Satyam4755&theme=tokyonight&hide_border=true" height="200" />
-</p>
-
----
-
 ### 🧭 Visitor Count
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Satyam4755&style=flat-square&color=blue" alt="Satyam's profile view count" />
+  <img src="https://komarev.com/ghpvc/?username=Satyam4755&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Satyam4755" />
 </p>
 
 ---
