@@ -6,7 +6,7 @@
 - 👨‍💻 I’m interested in **Coding**, **Video Editing**, **Deep Thinking**, and exploring new tech.
 - 🌱 Currently sharpening my skills in the **MERN Stack**.
 - 🤝 Actively looking to collaborate on impactful, fun, and challenging web projects.
-- 📬 Reach me at: **satyambpl.2000@gmail.com**
+- 📬 Reach me at: **satyambpl.2004@gmail.com**
 - 💬 Motto: *"Code can be understood — girls? Well... that’s still compiling 😅"*
 - 💡 Fun fact: *"Coding is like a swamp — panic, and you'll get stuck deeper!"*
 
